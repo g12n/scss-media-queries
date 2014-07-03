@@ -29,7 +29,16 @@ module.exports = function(grunt) {
     html:{
        files: [{expand: true, cwd: 'src/', src: ['*.html'], dest: 'build/'}]
     }
+  },
+
+  'gh-pages': {
+    options: {
+      base: 'build'
+    },
+    src: ['**']
   }
+
+
 });
 
 
@@ -37,7 +46,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
-
+  grunt.loadNpmTasks('grunt-gh-pages');
 
 
   // default Task for compiling SCSS and build docu (cross browser test)
