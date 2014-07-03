@@ -1,0 +1,64 @@
+@mixin respond-to($media) {
+  /* Smartphones (portrait and landscape) ----------- */
+  @if $media == smartphone {
+    @media only screen and (min-device-width : 320px) and (max-device-width : 630px) { @content; }
+  }
+
+ @if $media == smartphoneLandscape {
+    @media only screen and (min-width : 321px) and (max-width: 690px) and (orientation:landscape) { @content;}
+ }
+
+  @if $media == smartphonePortrait {
+    @media only screen and (max-width : 320px)  { @content;}
+  }
+
+  @if $media == portrait {
+    @media only screen and (orientation:portrait) { @content; }
+  }
+  
+  @else if $media == landscape {
+    @media only screen and (orientation:landscape) { @content; }
+  }
+  
+  @else if $media == square {
+    @media only screen and (aspect-ratio: 1/1) { @content; }
+  }
+}
+
+
+
+
+
+$initDegree:20;
+
+body{
+
+  font-family: sans-serif;
+  font-size: 14px; 
+  color: #000;
+  background: hsl($initDegree+10,100%,50%);
+  
+  @include respond-to(smartphone){
+    background:hsl($initDegree+20,100%,50%);
+    #query1:before{content: " smartphone " ;}
+  }
+  
+  @include respond-to(smartphoneLandscape){
+    background:hsl($initDegree+30,100%,50%);
+    #query2:before{content: " smartphoneLandscape " ;}
+  }
+  
+  @include respond-to(smartphonePortrait){
+    background:hsl($initDegree+40,100%,50%);
+    #query3:before{content: " smartphonePortrait " ;}
+  }
+  @include respond-to(portrait){
+    background:hsl($initDegree+50,100%,50%);
+    #query4:before{content: " portrait " ;}
+  }
+  @include respond-to(landscape){
+    background:hsl($initDegree+60,100%,50%);
+    #query5:before{content: " landscape " ;}
+  }
+  
+}
