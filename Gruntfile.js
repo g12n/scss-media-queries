@@ -10,7 +10,7 @@ module.exports = function(grunt) {
               compass: true
         },
         files: {
-              'build/css/mediaqueries.css': 'src/sass/mediaqueries.scss'
+              'src/css/mediaqueries.css': 'src/sass/mediaqueries.scss'
         }
       }
     },
@@ -20,8 +20,8 @@ module.exports = function(grunt) {
         tasks: ['sass']
     },
     html:{
-      files: ['src/*.html'],
-      tasks: ['copy:html']
+      files: ['src/*.*'],
+      tasks: ['htmlbuild']
 
     }
   },  
@@ -36,8 +36,19 @@ module.exports = function(grunt) {
       base: 'build'
     },
     src: ['**']
-  }
+  },
 
+  htmlbuild: {
+        dist: {
+            src: 'src/index.html',
+            dest: 'build/',
+            options: {
+                styles: {
+                    mediaqueries: 'src/css/mediaqueries.css'
+                }
+            }
+        }
+    }
 
 });
 
@@ -47,9 +58,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-gh-pages');
+  grunt.loadNpmTasks('grunt-html-build');
+
 
 
   // default Task for compiling SCSS and build docu (cross browser test)
-  grunt.registerTask('default', ['sass', 'copy','watch']);
+  grunt.registerTask('default', ['sass', 'htmlbuild','watch']);
   
 };
