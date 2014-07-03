@@ -2,18 +2,16 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Sass Tests</title>
-<style>body{font-family:sans-serif;font-size:14px;color:#000;background:#ff8000}@media only screen and (min-device-width: 320px) and (max-device-width: 630px){body{background:#fa0}body #query1:before{content:" smartphone "}}@media only screen and (min-width: 321px) and (max-width: 690px) and (orientation: landscape){body{background:#ffd500}body #query2:before{content:" smartphoneLandscape "}}@media only screen and (max-width: 320px){body{background:#ff0}body #query3:before{content:" smartphonePortrait "}}@media only screen and (orientation: portrait){body{background:#d4ff00}body #query4:before{content:" portrait "}}@media only screen and (orientation: landscape){body{background:#af0}body #query5:before{content:" landscape "}}
+	<title>Media Query Test</title>
+<style>body{font-family:sans-serif;font-size:14px;color:#fff;background:#000}@media only screen and (min-device-width: 320px) and (max-device-width: 630px){body #query1:before{content:" smartphone "}}@media only screen and (min-width: 321px) and (max-width: 690px) and (orientation: landscape){body #query2:before{content:" smartphoneLandscape "}}@media only screen and (max-width: 320px){body #query3:before{content:" smartphonePortrait "}}@media only screen and (orientation: portrait){body{background-color:#e61919}body #query4:before{content:" portrait "}}@media only screen and (orientation: landscape){body{background-color:#80e619}body #query5:before{content:" landscape "}}
 </style>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimal-ui">
 </head>
 <body>
-	
-
-
-<h1>Hello <span id="query1"></span> <span id="query2"></span> <span id="query3"></span> <span id="query4"></span> <span id="query5"></span></h1> 
-
-
-
+	<div id="query1"></div> 
+	<div id="query2"></div> 
+	<div id="query3"></div> 
+	<div id="query4"></div> 
+	<div id="query5"></div> 
 </body>
 </html>
