@@ -1,8 +1,17 @@
+@import "flex";
+
+
 //colors
-
-
 $degreePortrait:0;
-$degreeLandscape:90;
+$degreeLandscape:180;
+
+
+$portrait-color: hsl($degreePortrait,80%,50%);
+$landscape-color: hsl($degreeLandscape,80%,50%);
+
+$smartphone-color: #ff0;
+
+
 
 
 
@@ -33,33 +42,78 @@ $degreeLandscape:90;
   }
 }
 
+.tests{
+  position: absolute;
+  top:0; 
+  left: 0;
+  bottom: 0; 
+  right: 0;
+  padding: 0px; 
+  @extend %flexbox;
+  @include flex-direction(column)
+}
 
+.tests-label{
+  display: block; 
+  color: #444;
+  background: rgba(255,255,255,0.8);
+  padding: 0.5em 1em;
+}
+
+.portrait, 
+.landscape,
+.smartphone, 
+.smartphoneLandscape, 
+.smartphonePortrait{
+ display: none;
+ @include flex-grow(1);
+ margin: 10px;
+  text-align: center;
+  @include flex-direction(column);
+  @include align-items(center);
+  @include justify-content(center)
+}
+
+
+
+
+.portrait{background-color:$portrait-color}
+.landscape{background-color:$landscape-color;}
+.smartphone{background-color: $smartphone-color}
+
+.smartphoneLandscape{background-color: mix($smartphone-color,$landscape-color,50)}
+.smartphonePortrait{background-color: mix($smartphone-color,$portrait-color,50)}
 
 body{
 
   font-family: sans-serif;
-  font-size: 14px; 
+  font-size: 16px; 
   color: #fff;
   background: #000;
   
   @include respond-to(smartphone){
-    #query1:before{content: " smartphone " ;}
+    .smartphone {
+    @include flexbox;
+    }
   }
   
   @include respond-to(smartphoneLandscape){
-    #query2:before{content: " smartphoneLandscape " ;}
+    .smartphoneLandscape {
+      @include flexbox;
+    }
   }
   
   @include respond-to(smartphonePortrait){
-    #query3:before{content: " smartphonePortrait " ;}
+    .smartphonePortrait {@include flexbox;}
   }
   @include respond-to(portrait){
-    background-color:hsl($degreePortrait,80%,50%);
-    #query4:before{content: " portrait " ;}
+ 
+    background-color: lighten($portrait-color,20);
+       .portrait {@include flexbox;}
   }
   @include respond-to(landscape){
-    background-color:hsl($degreeLandscape,80%,50%);
-    #query5:before{content: " landscape " ;}
+    background-color:lighten($landscape-color,20);
+     .landscape {@include flexbox;}
   }
   
 }
