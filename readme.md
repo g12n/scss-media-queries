@@ -4,7 +4,7 @@ The goal of this project is to provide an easy [test][link-github-page] media qu
 
 I Borrow a technique discribed by [Mason Wendell][link-mason] in [this article][link-responsive-sass] by.
 
-
+ 
 
 
 [media-queries-snippets]:http://css-tricks.com/snippets/css/media-queries-for-standard-devices/ "Media Queries for Standard Devices"
